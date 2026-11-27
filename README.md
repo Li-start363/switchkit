@@ -1,6 +1,6 @@
 # switchkit — 双层分发台
 
-把「决策层想、执行层做」的双层分工做成**无感代理**:任何能改 base_url 的 AI 工具把请求指过来,switchkit 按处理规则决定走「双层分工」还是「沿用原方式」。请求从哪来、走哪条路、用了多少 token,运行台全程可见。本机回环运行,BYOK。
+把[决策层想、执行层做]的双层分工做成**无感代理**:任何能改 base_url 的 AI 工具把请求指过来,switchkit 按处理规则决定走「双层分工」还是「沿用原方式」。请求从哪来、走哪条路、用了多少 token,运行台全程可见。本机回环运行,BYOK。
 
 ## 诚实定位(先读)
 
@@ -35,11 +35,8 @@ python3 switchkit.py serve --port 8787     # 起本机服务并开浏览器
 - **客户端接入**:检测本机 Claude Code CLI / Codex CLI / Gemini CLI(可代配)与 Claude 桌面端 / ChatGPT / Cherry Studio / cc-switch(只展示);端点写法随协议而异:Claude 系 base 不带 /v1、Codex provider 带 /v1、Gemini 的环境变量不带 /v1。
 - **数据**:全部落 `~/.config/switchkit/`(双层配置、用量账、事件日志、规则);`exclude_map.json` 为带出处的已知风险参考数据(界面已不展示判定)。
 
-## 边界(未做,别当已有)
 
-- 旧版 Codex(`wire_api="chat"`)未兼容;Windows / 非 zsh 环境未适配;多请求并发未压测。
-- v2 盲测须新预注册后另立。
 
 ## License
 
-MIT(见 `LICENSE`)。欢迎提 issue / PR;拿去商用也行,但**别拿它冒充"自动择优"**——它不做择优。
+MIT(见 `LICENSE`)。欢迎提 issue / PR;
