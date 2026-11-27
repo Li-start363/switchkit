@@ -19,6 +19,14 @@ python3 switchkit.py serve --port 8787     # 起本机服务并开浏览器
 
 四步用起来:①「连接设置」配两层(base_url / 模型 ID / key 文件路径)→ ②「模型检查」点选模型,两层实测打分、按推荐填入对应层 → ③「处理规则」按当前模型打分,启用要走机制的工作类型 → ④ 工具侧把 base_url 指到运行台的代理端点(或用「🔌 接入工具」一键代配),发条请求回运行台看路线。
 
+## 界面一览
+
+| 运行台 | 接入工具(灰=不可用) | 模型检查 |
+|---|---|---|
+| ![运行台](docs/shot-runconsole.png) | ![接入工具](docs/shot-clients.png) | ![模型检查](docs/shot-modelcheck.png) |
+
+> 支持深链直达:`?panel=check` 等(可选值 log/opt/tpl/cfg/check/meter/guide/about)、`?clients=1` 展开接入工具。
+
 ## 架构一页
 
 - **单文件** `switchkit.py`:stdlib `http.server` + 内嵌前端;管理 UI 与代理同端口。

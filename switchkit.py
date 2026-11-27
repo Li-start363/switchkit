@@ -1252,6 +1252,10 @@ function go(i){cur=i;document.getElementById('slides').style.transform=`translat
 function slide(d){go(Math.min(3,Math.max(0,cur+d)));}
 renderNav();showWiz(0);
 loadLog();loadMeter();document.getElementById('ep').value='http://'+location.host+'/v1';
+const _q=new URLSearchParams(location.search);
+if(_q.get('panel')){const _m={log:0,opt:1,tpl:2,cfg:3,check:4,meter:5,guide:6,about:7};
+  show(_q.get('panel'),document.querySelectorAll('.nav button')[_m[_q.get('panel')]||0]);}
+if(_q.get('clients')==='1')toggleClients();
 fetch('/api/state').then(r=>r.json()).then(s=>{
   dm.value=s.dual.decision.model||'';db.value=s.dual.decision.base_url||'';dk.value=s.dual.decision.key_file||'';
   em.value=s.dual.execution.model||'';eb.value=s.dual.execution.base_url||'';ek.value=s.dual.execution.key_file||'';
@@ -1314,7 +1318,7 @@ function loadClients(){
     window.__CLHINT={};
     (r.clients||[]).forEach(c=>{window.__CLHINT[c.id]=c.write_hint||c.note||'';});
     document.getElementById('clientlist').innerHTML=(r.clients||[]).map(clientRow).join('');
-    msg.textContent='勾选后点「启用所选」;只改端点,不动 key;改前自动备份。';
+    msg.textContent='点行内「启用」即可代配;只改端点,不动 key;改前自动备份、可一键还原。';
   });
 }
 function enableOne(id){

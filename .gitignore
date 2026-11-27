@@ -2,6 +2,6 @@ __pycache__/
 build/
 dist/
 methodlab_runs/
-*.png
+/*.png
 *.bak-*
 .DS_Store
