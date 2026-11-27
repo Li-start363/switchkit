@@ -1,0 +1,7 @@
+__pycache__/
+build/
+dist/
+methodlab_runs/
+*.png
+*.bak-*
+.DS_Store

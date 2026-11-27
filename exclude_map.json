@@ -1,0 +1,25 @@
+{
+  "version": "exclude-map-v1-20261125",
+  "note": "硬排除黑名单(降级产品口径:只排除已知失效,不做择优、不宣称自动最优)。出处逐条可核,变更须留新版本。",
+  "hard_exclude": [
+    {"model": "ByteDance-Seed/Seed-OSS-36B", "match_re": "Seed-OSS", "reason": "交付失效 100%(18/18 空答,HTTP 200 内容空)", "source": "机制短文 追加6 报告_家族轮_20261124.md"},
+    {"model": "MiniMax-H3", "match_re": "MiniMax-H3|MiniMax.*H3", "reason": "平台挂牌不可调(20012 Model does not exist),勘误1 作废", "source": "同上"}
+  ],
+  "deprioritize": [
+    {"model": "Qwen-4B/7B/8B 族", "match_re": "Qwen[^/]*\\b(4B|7B|8B)\\b", "reason": "合同/决策脚手架下族内全负(-11.0/-8.3/-13.5)", "source": "机制短文 追加4/追加6"},
+    {"model": "inclusionAI/Ling-flash-2.0", "match_re": "Ling-flash", "reason": "脚手架不耐受(-7.3,合同臂 3 起严重错误 vs 裸 1 起)", "source": "机制短文 追加6"}
+  ],
+  "known_risks": [
+    {
+      "model": "zai-org/GLM-5.3-Flash",
+      "risk": "代码生成类交付卡流:让其写代码本体时卡死至超时(说思路/非代码任务正常)",
+      "evidence": "盲测 CD-02.B 五发复现 + methodlab 编码圈 U01 再中,共 3 场合实锤(2026-11-25/26)",
+      "handling": "代码生成任务勿用 GLM 当执行层;决策/判官角色不受影响"
+    }
+  ],
+  "boundary_notes": [
+    "2026-11-25 盲测(v1 FAIL,赢面 0.40):按类择优映射被证伪,故本表不提供任何『推荐/择优』语义,仅黑名单",
+    "tencent/Hy4-preview 在长文类盲测对两臂皆负(-3.7/-4.45),但属『不优』非『失效』,不入排除表",
+    "GLM 代码交付卡流已升『已知风险』(见 known_risks,2026-11-26)"
+  ]
+}
