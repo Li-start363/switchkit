@@ -30,4 +30,8 @@ python3 switchkit.py serve --port 8787     # 起本机服务并开浏览器
 ## 边界(未做,别当已有)
 
 - 旧版 Codex(`wire_api="chat"`)未兼容;Windows / 非 zsh 环境未适配;多请求并发未压测。
-- v2 盲测须新预注册后另立;发布到 GitHub 等外发渠道需作者点头。
+- v2 盲测须新预注册后另立。
+
+## License
+
+MIT(见 `LICENSE`)。欢迎提 issue / PR;拿去商用也行,但**别拿它冒充"自动择优"**——它不做择优。
